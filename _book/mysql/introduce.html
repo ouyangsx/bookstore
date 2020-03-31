@@ -17,6 +17,10 @@
     
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -49,6 +53,7 @@
         
     
     
+    
     <meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -62,6 +67,17 @@
     
     <link rel="prev" href="../" />
     
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"ouyangsx","repo":"bookstore","type":"star","size":"large"},{"user":"ouyangsx","type":"follow","width":"230","count":false}]};
+    </script>
 
     </head>
     <body>
@@ -116,12 +132,38 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../java/dos.html">
+        <li class="chapter " data-level="1.2.1" data-path="../java/prologue.html">
             
-                <a href="../java/dos.html">
+                <a href="../java/prologue.html">
             
                     
-                    DOS命令
+                    序章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../java/grammar.html">
+            
+                <a href="../java/grammar.html">
+            
+                    
+                    javaSE一
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../java/grammarTwo.html">
+            
+                <a href="../java/grammarTwo.html">
+            
+                    
+                    javaSE二
             
                 </a>
             
@@ -483,7 +525,7 @@ desc &#x8868;&#x540D;;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"mysql简介","level":"1.4.1","depth":2,"next":{"title":"sql语言","level":"1.4.2","depth":2,"path":"mysql/sql.md","ref":"mysql/sql.md","articles":[]},"previous":{"title":"mysql","level":"1.4","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"mysql简介","level":"1.4.1","depth":2,"path":"mysql/introduce.md","ref":"mysql/introduce.md","articles":[]},{"title":"sql语言","level":"1.4.2","depth":2,"path":"mysql/sql.md","ref":"mysql/sql.md","articles":[]},{"title":"TCL语言与JDBC","level":"1.4.3","depth":2,"path":"mysql/jdbc.md","ref":"mysql/jdbc.md","articles":[]},{"title":"mysql高级","level":"1.4.4","depth":2,"path":"mysql/advanced.md","ref":"mysql/advanced.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["toc","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"toc":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Shuangxue Ouyang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*","description":"null"},"file":{"path":"mysql/introduce.md","mtime":"2020-02-21T08:14:29.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-05T14:03:24.291Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"mysql简介","level":"1.4.1","depth":2,"next":{"title":"sql语言","level":"1.4.2","depth":2,"path":"mysql/sql.md","ref":"mysql/sql.md","articles":[]},"previous":{"title":"mysql","level":"1.4","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"mysql简介","level":"1.4.1","depth":2,"path":"mysql/introduce.md","ref":"mysql/introduce.md","articles":[]},{"title":"sql语言","level":"1.4.2","depth":2,"path":"mysql/sql.md","ref":"mysql/sql.md","articles":[]},{"title":"TCL语言与JDBC","level":"1.4.3","depth":2,"path":"mysql/jdbc.md","ref":"mysql/jdbc.md","articles":[]},{"title":"mysql高级","level":"1.4.4","depth":2,"path":"mysql/advanced.md","ref":"mysql/advanced.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["toc","expandable-chapters","github-buttons","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"toc":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"github-buttons":{"buttons":[{"user":"ouyangsx","repo":"bookstore","type":"star","size":"large"},{"user":"ouyangsx","type":"follow","width":"230","count":false}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Shuangxue Ouyang","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*","description":"null"},"file":{"path":"mysql/introduce.md","mtime":"2020-02-21T08:14:29.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-31T15:54:31.995Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -491,6 +533,14 @@ desc &#x8868;&#x540D;;
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>

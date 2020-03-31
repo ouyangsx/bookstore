@@ -2,7 +2,9 @@
 
 * [Introduction](README.md)
 * [java](java/README.md)
-    * [DOS命令](java/dos.md)
+    * [序章](java/prologue.md)
+    * [javaSE一](java/grammar.md)
+    * [javaSE二](java/grammarTwo.md)
 * [Git与GitHub](git/README.md)
     * [Git简介](git/introduce.md)
     * [Git命令行操作](git/commandCtrl.md)

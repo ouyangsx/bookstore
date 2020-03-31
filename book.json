@@ -1,5 +1,25 @@
 {
     "author":"Shuangxue Ouyang",
 	"description":"null",
-	"plugins": ["toc"]
+	"plugins": [
+		"toc",
+		"expandable-chapters",
+		"github-buttons"
+		],
+	"pluginsConfig": {
+		"expandable-chapters":{},
+		"github-buttons": {
+            "buttons": [{
+              "user": "ouyangsx",
+              "repo": "bookstore",
+              "type": "star",
+              "size": "large"
+            }, {
+              "user": "ouyangsx",
+              "type": "follow",
+              "width": "230",
+              "count": false
+            }]
+          }
+	}
 }
