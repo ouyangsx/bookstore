@@ -3097,9 +3097,7 @@ class Wife {
        }
    }
    ```
-```
-   
-   ```java
+```java
    /**
    Room类： 
    属性：房号、面积、地址，使用封装
@@ -3177,8 +3175,6 @@ class Wife {
        }
    }
 ```
-
-   
 
 ##### 包
 
@@ -6347,7 +6343,6 @@ class Employees implements Comparable{
 
 ```java
 import day10.MyArrayList;
-
 /*
 需求：编写一个数组的工具类
 包含一个方法，可以为任意类型的数组进行排序
@@ -6530,7 +6525,6 @@ jdk1.8对接口进行了一些修改，接口中还可以声明默认方法，�
        }
    }
    
-   
    interface MyInter {
        default void method() {
            System.out.println("接口中的默认实现");
@@ -6555,7 +6549,7 @@ jdk1.8对接口进行了一些修改，接口中还可以声明默认方法，�
        }
    }
    ```
-
+   
 3. 特殊情况：类优先原则
 
    + 当一个类实现了多个接口，多个接口中的默认方法的签名是一样的：
@@ -6808,7 +6802,7 @@ class Single{
 
 1. 饿汉式（恶汉式）：
 
-   + 不管使用者是否需要这个对象，它都一上来就创建好了这个对象
+   + 不管使用者是否需要这个对象，它都一上来就创建好了这个对象，在类加载和初始化时创建
 
    ```java
    public class TestHungry {
@@ -6909,9 +6903,11 @@ class Single{
 
    当一个类内部，其中包含某个特征，这个特征也是一个完整的结构，那么也需要一个内部类来描述；而且这个内部类只为外部类提供服务；
 
-4. 定义内部类的好处：
+4. 定义内部类的好处/什么情况下使用内部类：
 
    + 可以表示为这个内部类仅为外部类服务；
+     + 集合中的迭代器；
+     + 链表等集合中的Node类型
    + 这个内部类可以使用外部类的所有成员，包括私有的；
 
 ###### 静态内部类
@@ -6935,7 +6931,7 @@ class Single{
      + 构造器：无参构造和有参构造；
      + 代码块：静态代码块和非静态代码块；
      + 内部类(语法上允许但不这样写)；
-   + 静态内部类可以使用外部类的所有静态成员，包括私有的；
+   + <font color='red'>静态内部类可以使用外部类的所有静态成员，包括私有的；</font>
    
    + 如何使用静态内部类：
      + 在外部类里面使用：
@@ -6945,6 +6941,8 @@ class Single{
      + 在外部类外面使用：
        + 如果使用静态内部类的静态成员：外部类名.静态内部类名.静态成员；
        + 如果使用静态内部类的非静态成员：先创建静态内部类的对象，Outer.Inner in = new Outer.Inner();在用对象调用：in.innerTest();
+     + 静态内部类是否可以继承父类、实现接口：
+       + 可以；
      + 总规则：
        + 静态不能用非静态的东西；
        + 使用别人的静态的东西，使用类名；使用费静态的，使用对象；
@@ -7032,13 +7030,13 @@ class Outer{
 2. 特点：
 
    + 成员内部类的权限修饰符仍然是4种；
-   + 成员内部类种的成员：成员内部类中不允许出现静态成员；
+   + <font color='red'>成员内部类种的成员：成员内部类中不允许出现静态成员；</font>
      + 属性：可以有非静态方法；
      + 方法：允许非静态方法和抽象方法（如果有抽象方法，那么成员内部类也必须是抽象类）；
      + 构造器：无参构造和有参构造都可以；
      + 代码块：允许非静态代码块；
 
-3. 在成员内部类中使用外部类的成员，包括私有的、静态的、非静态的都可以；
+3. <font color='red'>在成员内部类中使用外部类的成员，包括私有的、静态的、非静态的都可以；</font>
 
 4. 如何使用成员内部类：
 
@@ -7149,7 +7147,7 @@ class OuterOne{
 
 3. 局部内部类可以有哪些成员：
 
-   + 不能有静态的成员，其余均可以；
+   + <font color='red'>不能有静态的成员，其余均可以；</font>
 
 4. 在哪里可以使用局部内部类：
 
@@ -7216,7 +7214,7 @@ class OuterTwo{
        【修饰符】返回值类型 方法名(形参列表){
            //匿名内部类
            //形式一：
-           父类 对象名 = new 父类/父接口(){
+           父类 对象名 = new 父类(形参lie'b)/父接口(){
                //...
            };
        }
@@ -7225,8 +7223,15 @@ class OuterTwo{
 
 2. 特点：
 
+   + 匿名内部类没有修饰符；
    + 因为匿名内部类没有名字，所以在声明时就要创建它的对象；
    + 匿名内部类也属于局部内部类，那么局部内部类的限制对它来说也是一样的；
+     + 不能有静态成员，因为是局部的；
+     + 不能有构造器，因为没有名字，构造器需要与类名相同；
+     + 在匿名内部类中使用所在方法的局部变量：这个变量必须是final修饰
+   + 一次性的，只有一个对象，如果在new，就是另一个匿名内部类的对象；
+   + 匿名内部类是否可以继承父类或者实现接口：
+     + 匿名内部类要么继承父类，要么实现接口；
 
 ```java
 public class TestAnnoymousInner {
@@ -7283,5 +7288,604 @@ abstract class Father{
 
 interface Car{
     void run();
+}
+```
+
+```java
+import java.util.Arrays;
+import java.util.Comparator;
+
+/*
+（1）声明一个学生类Student，属性有String  name,int  age,int  score。
+（2）要求Student类实现java.lang.Comparable接口，要求按照学生的年龄进行排序
+（3）在主方法中声明一个Student数组，创建5个对象遍历数组，显示学生信息。
+（4）在主方法中调用Arrays的sort方法进行排序，并遍历显示结果。
+	public static void sort(Object[] a)
+（5）在主方法中调用Arrays的sort方法进行排序，并遍历显示结果。
+	public static void sort(Object[] a,Comparator c)
+要求使用匿名内部类的形式来为Comparator参数赋值。按照学生的成绩排序，不需要修改Student类型
+java.util.Comparator也是一个接口类型，它有一个抽象方法：public int compare(Object o1, Object o2)
+如果o1大于o2返回正整数，小于返回负整数，等于返回0
+ */
+public class TestExer3 {
+    public static void main(String[] args) {
+        Student[] array = new Student[5];
+        array[0] = new Student("张登",25,80);
+        array[1] = new Student("张帆",20,80);
+        array[2] = new Student("成登",23,90);
+        array[3] = new Student("朱一龙",28,85);
+        array[4] = new Student("张胜",21,83);
+        for (Student s:array) {
+            System.out.println(s);
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+
+        System.out.println("------------------------------------");
+
+        //(4)进行排序
+        Arrays.sort(array);//按照元素的自然顺序，即实现java.lang.Comparable接口，重写int compareTo(Object o)；
+        for (Student s:array) {
+            System.out.println(s);
+        }
+
+        System.out.println("**************************");
+        Arrays.sort(array,new MyComparator());
+        //匿名内部类
+        Arrays.sort(array,new Comparator(){
+
+            @Override
+            public int compare(Object o1, Object o2) {
+                Student stu1 = (Student)o1;
+                Student stu2 = (Student)o2;
+                return stu1.getScore() - stu2.getScore();
+            }
+        });
+        for (Student s:array) {
+            System.out.println(s);
+        }
+    }
+}
+
+//用它来比较两个学生对象
+class MyComparator implements Comparator{
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        Student stu1 = (Student)o1;
+        Student stu2 = (Student)o2;
+        return stu1.getScore() - stu2.getScore();
+    }
+}
+
+class Student implements Comparable{
+    private String name;
+    private int age;
+    private int score;
+
+    public Student() {
+    }
+
+    public Student(String name, int age, int score) {
+        this.name = name;
+        this.age = age;
+        this.score = score;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", score=" + score +
+                '}';
+    }
+
+    //按照学生的年龄进行比较
+    @Override
+    public int compareTo(Object o) {
+        Student stu = (Student) o;
+        if (this.age > stu.age){
+            return 1;
+        }else if (this.age < stu.age){
+            return -1;
+        }
+        return 0;
+    }
+}
+```
+
+###### 代理设计模式
+
+代理可以被代理者办事，被代理者只负责最核心的业务逻辑，例如：签合同、付钱、拿钥匙、入住，至于其他的如寻找房源都交给代理；
+
+开发中，很多类的方法只关心自己的业务功能，例如：登录、注册、购买商品、查询商品，例如在核心业务功能之外可能有如下工作：计算一个功能耗时多久、这个用户是否有权限访问这个功能、这个用户什么时候访问这个功能，什么时候结束相关日志的记录...
+
+结论：代理类可以替被代理类的对象完成一些辅助工作，可以说前置工作，也可以是后置工作
+
+1. 代理设计模式有三个角色：
+   + 主题：接口；
+   + 代理者；
+     + 代理类中有一个属性，用来保存被代理者的对象用（代理类中持有被代理者的引用）；
+     + 在代理方法中把核心业务功能交给被代理者自己完成；
+   + 被代理者；
+     + 核心业务功能；
+
+```java
+public class TestProxy {
+    public static void main(String[] args) {
+        Rentable rent = new Proxy(new Customer());
+        rent.rent();
+    }
+}
+
+//1.主题
+interface Rentable{
+    void rent();
+}
+
+//2.被代理者
+class Customer implements Rentable{
+
+    @Override
+    public void rent() {
+        System.out.println("签合同、付钱、拿钥匙、入住");
+    }
+}
+
+//3、代理者
+class Proxy implements Rentable{
+
+    //在代理类中持有被代理类的引用
+    //替谁代理
+    private Rentable target;
+
+    //通常选择用构造器为target赋值
+    public Proxy(Rentable target) {
+        this.target = target;
+    }
+
+    @Override
+    public void rent() {
+        //替被代理者：寻找房源、鉴别房源
+        System.out.println("寻找房源");
+        System.out.println("确定房源是否真实、调查是否是二房东");
+
+        //核心业务功能是交给被代理者
+        target.rent();
+
+        System.out.println("收尾工作");
+    }
+}
+```
+
+##### 枚举
+
+1. 含义：
+
+   当某个类型的对象是有限个，例如：星期（7个对象），订单状态（新订单、未付款、已付款...），支付方式（现金、银行卡、支付宝、微信），则称为枚举，也成为列举，一一列出这个类型的所有对象。
+
+2. 语法格式：
+
+   + jdk1.5之前，如果想要实现这种需求？单例模仿
+
+     + 构造器私有化；
+     + 在类中创建好几个对象；
+
+     ```java
+     public class TestEnumType {
+         public static void main(String[] args) {
+        Week w1 = Week.Mon;
+             Week w11 = Week.Mon;
+
+             System.out.println(w1 == w11);
+         }
+     }
+     
+     class Week{
+         public static final Week Mon = new Week("星期一");
+         public static final Week Tues = new Week();
+         public static final Week Wed = new Week();
+         public static final Week Thur = new Week();
+         public static final Week Fri = new Week();
+         public static final Week Sat = new Week();
+         public static final Week Sun = new Week();
+         private String dexcription;
+     
+         private Week(){
+     
+         }
+     
+         public Week(String dexcription) {
+             this.dexcription = dexcription;
+         }
+     
+         @Override
+         public String toString() {
+             return "Week{" +
+                     "dexcription='" + dexcription + '\'' +
+                     '}';
+         }
+     }
+     ```
+     
+   + jdk1.5之后：
+   
+     ```java
+     【修饰符】enum 枚举类型名{
+         常量对象列表;
+     }
+     ```
+   
+3. 特点：
+
+   + 枚举类型的构造器，默认就是私有化，也只能是私有化的，private可以省略；
+   + 如果常量对象列表后面还有其他的代码，那么在常量对象列表后面必须加“；”进行分割；
+   + 枚举的常量列表必须在首行；
+   + 常量对象列表默认调用的是无参构造；
+   + 枚举类型也可以有：属性、构造器等；
+   + 枚举类型不能继承父类，它的父类是java.lang.Enum类型；
+
+4. java.lang.Enum类型：
+
+   + 这个父类实现了Comparable接口，默认是按照对象的声明顺序比较大小；
+   + name()：返回对象的常量名；
+   + ordinal()：返回声明对象的序号，第一个是0；
+   + toString()：Enum中的toString和name()一样，当然自己的枚举类型中可以再次重写；
+   + 两个API中没有的方法：
+     + 枚举类型名[] values()：返回枚举类的所有常量对象组成的数组；
+     + 枚举类型名 valueOf(常量名)：根据常量名获取某一个指定的常量对象；
+
+   ```java
+   public class TestEnumType2 {
+       public static void main(String[] args) {
+           Season s = Season.WINTER;
+           Season ss = Season.WINTER;
+   
+           System.out.println(s == ss);
+           System.out.println(s);
+   
+           Season s1 = Season.WINTER;
+           Season s2 = Season.SPRING;
+           System.out.println(s1.compareTo(s2));//返回正整数3，s1 > s2
+           System.out.println(s1.ordinal());//3
+           System.out.println(s2.ordinal());//0
+           System.out.println(s1.name());//常量名
+   
+           Season[] values = Season.values();
+           for(Season season:values) {
+               System.out.println(season);
+           }
+   
+           Season sp = Season.valueOf("SPRING");
+           System.out.println(sp);
+       }
+   }
+   
+   enum Season{
+       /**
+        * SPRING,SUMMER,AUTUMN是调用无参构造创建的对象；
+        * WINTER("白雪皑皑")是调用有参构造创建的对象；
+        */
+       SPRING,SUMMER,AUTUMN,WINTER("白雪皑皑");
+       private String description;
+   
+       Season(){
+   
+       }
+   
+       Season(String description) {
+           this.description = description;
+       }
+   
+       @Override
+       public String toString() {
+           return "Season{" +
+                   "description='" + description + '\'' +
+                   '}';
+       }
+   }
+   ```
+
+
+##### 注解Annotation
+
+注解也成为注释，是由代码来读取的，又称为代码级注解；
+
+1. 注解的三个要素：
+
+   一个完整的注解包含以下三个部分：
+
+   + 声明一个注解；
+   + 使用注解；
+   + 由注解处理程序去读取它；
+
+2. 系统提供的三个基本的注解：
+
+   + @Override：
+     + 声明：java.lang包；
+     + 使用注解：再重写的方法上面加这个注解；
+     + javac.exe读取它：读取后会对这个方法进行格式检查，看它是否满足重写的要求（两同、两小、一大）；
+   + @SuppressWarnings("...")：抑制警告
+     + 声明：在java.lang包；
+     + 使用：在任何需要抑制警告的位置都可以使用；
+     + javac.exe读取它：读取之后就不弹出对应的警告信息了；
+   + @Deprecated：表示某个东西已过时了
+     + 声明：在java.lang包；
+     + 使用：在任何标记为已过时的元素上都可以加；
+     + javac.exe读取它：读取后，如果有程序员使用了这个已过时的东西（方法、类等），编译器就会弹出警告，告知程序员该内容已过时，不建议使用了；如果继续使用，后果自负；
+
+   ```java
+   import java.util.Comparator;
+   import java.util.Date;
+   
+   public class TestAnnotation {
+       public static void main(String[] args) {
+           int a = 10;
+   
+           @Deprecated
+           Date date = new Date();
+           System.out.println(date.getYear());
+       }
+   }
+   
+   class Father{
+       public void eat(){
+           int a = 3;
+       }
+   }
+   
+   class Son extends Father implements Comparator {
+       @Override
+       public void eat(){
+   
+       }
+   
+       @Override
+       public int compare(Object o1, Object o2) {
+           return 0;
+       }
+   }
+   ```
+
+3. 文档注释与注解
+
+   + 可用于生成API：
+     + Tools>generaljavadoc;
+     + other command line arguments:：-encoding utf-8 -charset utf-8;
+     + OK;
+     
+   + 和文档相关的注解：
+   
+     @author 标明开发该类模块的作者，多个作者之间使用,分割；
+   
+     @version 标明该类模块的版本；
+   
+     @see 参考转向，也就是相关主题；
+   
+     @since 从哪个版本开始增加的；
+   
+     @param 对方法中某参数的说明，如果没有参数就不写；
+   
+     @return 对方法返回值的说明，如果没有返回值就不写；
+   
+     @exception 对方法可能抛出的异常进行说明 ，如果没有抛出的异常就不写；
+   
+     其中 @param @return 和 @exception 这三个标记都是只用于方法的。
+   
+     javadoc.exe就是这些注解的信息处理流程；
+
+###### JUnit中的@Test
+
+1. @Test是Junit测试框架的一个注解，用于表示某个方法是测试方法；
+2. 注解：
+   + 声明：JUnit框架声明；
+   + 使用它；
+   + 读取它：Junit读取；
+3. 要求：
+   + 这个类必须是public；
+   + 用@Test标记的方法必须是public；
+   + 用@Test标记的方法必须是void；
+   + 用@Test标记的方法必须是无参的；
+4. 运行：
+   + 如果没有选择一个方法，那么表示所有标记为@Test的方法都要运行；
+   + 如果只想要运行其中一个方法，那么选中标记为@Test的那个方法名运行；
+
+```java
+import org.junit.Test;
+
+/**
+ * @Test是Junit测试框架的一个注解，用于表示某个方法是测试方法
+ */
+public class TestJUnit {
+    @Test
+    public void test(){
+        int a = 10;
+        int b = 20;
+        System.out.println("a+b=" +(a+b));
+    }
+
+    @Test
+    public void test2(){
+        int a = 10;
+        int b = 10;
+        System.out.println("a/b=" +(a/b));
+    }
+}
+```
+
+###### 元注解
+
+1. 含义：注解的注解，给注解添加的注解，在自己声明注解时采用；
+
+2. 分类：
+
+   + @Target：
+   + @Retention：
+   + @Doucmented：表示可以被javadoc.exe读取到帮助文档中；
+   + @Inherited：表示该注解可以被子类继承；
+
+3. 自定义注解声明格式：
+
+   ```java
+   【修饰符】@interface 注解名{
+       
+   }
+   ```
+
+4. @Target：表明某个注解可以用到哪些元素上；
+
+   + 语法格式：
+
+     ```java
+     @Target(ElementType.METHOD)
+     @Target({ElementType.METHOD,ElementType.TYPE})
+     ...
+     ```
+
+   + ElementType是一个枚举类型，它的常量对象一共有：
+
+     + TYPE：可以在类、接口、枚举的声明上使用；
+     + METHOD：可以在方法的声明上使用；
+     + FIELD：可以在属性上使用，包括枚举常量对象；
+     + CONSTRUCTOR：在构造器上使用
+     + PARAMETER：
+     + LOCAL_VARIABLE：在局部变量上使用；
+     + ANNOTATION_TYPE：
+     + PACKAGE：在包上使用；
+     + TYPE_PARAMETER：
+     + TYPE_USE：
+
+5. @Retention：表明这个注解的生命周期，能活到什么时候；
+
+   + 语法格式：
+
+     ```java
+     @Retention(RetentionPolicy.SOURCE)
+     ...
+     ```
+
+   + RetentionPolicy是一个枚举类型，它的常量对象一共有三个：
+
+     + SOURCE：
+     + CLASS：
+     + RUNTIME：
+
+   + 如果想要在反射中读取到某个注解信息，只有RUNTIME才可以，否则是不行的；
+
+   ```java
+   import java.lang.annotation.*;
+   
+   public class TestMetaAnnotation {
+       public static void main(String[] args) {
+           //3、读取注解，需要用到反射
+           Class clazz = MyClass.class;
+           Annotation annotation = clazz.getAnnotation(MyAnnotation.class);
+           System.out.println(annotation);//如果是null，说明没有读取到，可能它的生命周期没有指明到RUNTIME
+       }
+   }
+   
+   //2、使用注解
+   @MyAnnotation
+   class MyClass{
+       @MyAnnotation
+       public void test(){
+   
+       }
+   }
+   
+   //1、声明注解
+   @Target({ElementType.METHOD,ElementType.TYPE})
+   @Retention(RetentionPolicy.RUNTIME)//只有配置了元注解，并指明了RUNTIME，才能在反射中读取到
+   @interface MyAnnotation{
+   
+   }
+   ```
+
+
+###### 注解的配置参数
+
+一个注解一个是否需要传参数，和声明注解时是否指定需要传参数有关系；
+
+1. 配置参数的声明：
+
+   ```java
+   @元注解
+   【修饰符】@interface 注解名{
+       //配置参数
+       数据类型 参数名() default 默认值;
+   }
+   ```
+
+2. 如何使用带参数的注解：
+
+   ```java
+   @注解名(参数名 = 参数值)
+   ```
+
+3. 特点：
+
+   + 声明的时候指明了几个配置参数，使用时就要为几个参数赋值；
+   + 当注解中只有一个配置参数，而且它的名称是value，那么在赋值时可以省略value；
+   + 如果配置参数有默认值，那么可以不需要指定参数；
+   + 参数的类型只能是八种基本数据类型、String类型、Class类型、enum类型、Annotation类型、以及以上所有类型的数组。
+
+```java
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
+
+public class TestParams {
+    public static void main(String[] args) {
+
+    }
+}
+
+@MyAnnotation2(info = "INIT",num = 3)
+class MyClass2{
+
+}
+
+@Target(ElementType.TYPE)
+@YourAnnotation("hello world")
+@HisAnnotation()
+@interface MyAnnotation2{
+    String info();
+    int num();
+}
+
+@Target(ElementType.TYPE)
+@interface YourAnnotation{
+    String value();
+}
+
+@Target(ElementType.TYPE)
+@interface HisAnnotation{
+    String value() default "java";
 }
 ```

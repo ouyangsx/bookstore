@@ -445,7 +445,8 @@ git pull [远程地址别名] [远程分支名]
 
 #### 跨团队协作操作
 
-<iframe src="//player.bilibili.com/player.html?aid=24441039&cid=41039031&page=41" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="500" height="500"> </iframe>
+​	https://www.bilibili.com/video/BV1pW411A7a5/?p=41
+
  + Fork
 
    ![Fork](images/Fork.png)
