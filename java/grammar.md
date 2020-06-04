@@ -7709,7 +7709,7 @@ class Proxy implements Rentable{
    + 使用它；
    + 读取它：Junit读取；
 3. 要求：
-   + 这个类必须是public；
+   + 标记了@Test方法的类必须是public；
    + 用@Test标记的方法必须是public；
    + 用@Test标记的方法必须是void；
    + 用@Test标记的方法必须是无参的；
@@ -7746,8 +7746,8 @@ public class TestJUnit {
 
 2. 分类：
 
-   + @Target：
-   + @Retention：
+   + @Target：表示该注解可以用在哪个元素上；
+   + @Retention：表示该注解的生命周期；
    + @Doucmented：表示可以被javadoc.exe读取到帮助文档中；
    + @Inherited：表示该注解可以被子类继承；
 
@@ -7829,7 +7829,7 @@ public class TestJUnit {
    ```
 
 
-###### 注解的配置参数
+###### 注解的配置参数/自定义注解
 
 一个注解一个是否需要传参数，和声明注解时是否指定需要传参数有关系；
 
