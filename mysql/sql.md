@@ -301,9 +301,9 @@ WHERE
   #查询没有奖金的员工信息
   SELECT
   	* 
-FROM
+  FROM
   	employees 
-WHERE
+  WHERE
   	commission_pct IS NULL;
   ```
 ```
